@@ -5,7 +5,17 @@
 #         self.next = None
 
 class Solution(object):
-    def reverseList(self, head):
+    def __reverse__(self, head, new_head):
+        if head is None:
+            return new_head;
+        next = head.next;
+        head.next = new_head;
+        return self.__reverse__(next, head)
+        
+    def reverseList_recursive(self, head):
+        return self.__reverse__(head, None);
+    
+    def reverseList_iterative(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
@@ -18,3 +28,6 @@ class Solution(object):
             head = temp;
         
         return curt
+        
+    #reverseList = reverseList_iterative;
+    reverseList = reverseList_recursive;
