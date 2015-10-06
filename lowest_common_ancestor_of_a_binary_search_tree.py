@@ -19,12 +19,12 @@ class Solution(object):
         while x<min(len(path_p),len(path_q)) and path_p[x] == path_q[x]:
             x+=1
         return path_p[x-1]
-        
+
     def find_path(self,root,target):
         # base case
         if not root: return None;
         if root is target: return [target]
-            
+
         for i in [root.left,root.right]:
             tail = self.find_path(i,target)
             if tail:
